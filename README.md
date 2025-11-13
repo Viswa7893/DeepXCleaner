@@ -144,7 +144,7 @@ If you found DeepXCleaner helpful, please consider:
 **Durga Viswanadh Nemala**
 
 - GitHub: [@DurgaViswanadh](https://github.com/Viswa7893)
-- LinkedIN: [@DurgaViswanadhNemala](https://www.linkedin.com/in/nemala-durga-viswanadh/)
+- Linked IN: [@DurgaViswanadhNemala](https://www.linkedin.com/in/nemala-durga-viswanadh/)
 
 ---
 
