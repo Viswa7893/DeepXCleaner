@@ -1,67 +1,153 @@
-DeepXCleaner – A Beautiful macOS Xcode Cleaner 🚀
+<p align="center">
+  <img src="icon.png" width="60" />
+</p>
 
-DeepXCleaner is a modern, SwiftUI-based macOS utility designed to clean and optimize your Xcode environment in one click.
-It removes derived data, device support files, archives, caches, simulators, and more — helping developers reclaim gigabytes of space instantly.
+# DeepXCleaner – The Most Beautiful Xcode Cleaner for macOS 🚀
 
-Built with SwiftUI + Menu Bar Extra + Async Shell Operations.
+<p align="center">
+  <img src="https://img.shields.io/badge/Swift-5.9-orange?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/macOS-13+-black?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/SwiftUI-Modern-blueviolet?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge"/>
+</p>
 
-✨ Features
-🧹 1-Click Deep Cleaning
+<p align="center">
+  ⚡ A sleek, modern, beautifully animated macOS menu bar app that deeply cleans Xcode's unwanted files — freeing up gigabytes in a single click.
+</p>
 
-Clean Derived Data
+---
 
-Remove Archives
+## ✨ Features at a Glance
 
-Clear Xcode & Carthage Caches
+### 🧹 One-Click Deep Cleaning
 
-Clean Simulator Data
+DeepXCleaner can remove:
 
-Delete Old / Unavailable Simulators
+- **Derived Data**
+- **Archives**
+- **Xcode Cache**
+- **Carthage Cache**
+- **Simulator Data**
+- **Device Support** (iOS / tvOS / watchOS)
+- **Old / Unavailable simulators**
+- **Reset Xcode Preferences**
 
-Reset Xcode Preferences
+### 🌈 Modern macOS UI
 
-Clean Device Support folders (iOS / watchOS / tvOS)
+- Smooth SwiftUI animations
+- Glass-morphism cards
+- Gradient buttons
+- Hover effects
+- Status progress
+- Dark mode perfection
 
-📊 Real-Time Storage Usage
+### 📊 Real-Time Storage Monitoring
 
-Shows total Xcode storage usage
+- Live Xcode storage usage
+- Automatic data refresh every 3 seconds
+- Shows total bytes freed
 
-Breaks down by DerivedData, Archives, Cache, Simulator data, Device support, etc.
+### 🖥️ Menu Bar App
 
-Auto-refreshes every few seconds
+- Clean from anywhere
+- Optional: show free space value in menu bar
+- Opens a window with a clean modern UI
 
-⚙️ Fully Customizable Cleaning Preferences
+### ⚙️ Customizable Preferences
 
-Enable/disable individual cleaning operations:
+Choose exactly what gets cleaned.
 
-Archives
+---
 
-Derived Data
+## 🖼️ Screenshots
 
-Caches
+> Add images inside the `screenshots/` folder
 
-Device Support
+<p align="center">
+  <img src="screenshots/main.png" width="700" />
+  <br/><br/>
+  <img src="screenshots/settings.png" width="700" />
+</p>
 
-Simulator Data
+---
 
-Reset Xcode Settings
+## 💡 Why DeepXCleaner?
 
-Old Simulator Cleanup
+Xcode can generate **50–200GB** of leftover junk over time:
 
-🖥️ Menu Bar App
+- Simulator runtimes
+- Old device support folders
+- Derived data bloating
+- Multiple archive histories
+- Cache files
 
-Opens from the menu bar
+**DeepXCleaner** cleans all of them safely and beautifully. No terminal. No manual searching. No scripts required.
 
-Optional: show free-up space directly in menu bar
+---
 
-🎨 Modern SwiftUI UI
+## 🚀 Getting Started
 
-Glass-material cards
+### Requirements
 
-Smooth animations
+- macOS 13.0 or later
+- Swift 5.9+
+- Xcode 15.0+
 
-Gradient buttons
+### Installation
 
-Hover effects
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/DeepXCleaner.git
+   ```
 
-Elegant dark UI
+2. Open `DeepXCleaner.xcodeproj` in Xcode
+
+3. Build and run the project (⌘R)
+
+---
+
+## 🛠️ Usage
+
+1. Launch DeepXCleaner from your Applications folder
+2. The app icon will appear in your menu bar
+3. Click the icon to open the cleaning interface
+4. Select the items you want to clean
+5. Click "Clean Now" and watch the magic happen!
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+---
+
+## 💖 Support
+
+If you found DeepXCleaner helpful, please consider:
+
+- ⭐ Starring the repository
+- 🐛 Reporting bugs
+- 💡 Suggesting new features
+- 📢 Sharing with other developers
+
+---
+
+## 👨‍💻 Author
+
+**Durga Viswanadh Nemala**
+
+- GitHub: [@DurgaViswanadh](https://github.com/Viswa7893)
+- LinkedIN: [@DurgaViswanadhNemala](https://www.linkedin.com/in/nemala-durga-viswanadh/)
+
+---
+
+<p align="center">
+  Made with ❤️ for the iOS/macOS development community
+</p>
