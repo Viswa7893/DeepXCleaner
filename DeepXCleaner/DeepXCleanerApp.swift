@@ -7,17 +7,21 @@
 
 import SwiftUI
 import ServiceManagement
+import LaunchAtLogin
 
 @main
 struct DeepXCleanerApp: App {
     // MARK: - State Objects
-    private let router = NavigationRouter()
-    private let store = XcodeCleanerStore(.shared)
-    private let preferences = CleanerPreferences.shared
+    @State private var router = NavigationRouter()
+    @State private var store = XcodeCleanerStore(.shared)
+    @State private var preferences = CleanerPreferences.shared
+    @State private var loginItemManager = LoginItemManager.shared
     
-    init() {
-        if #available(macOS 13.0, *) { try? SMAppService.mainApp.register() }
-    }
+//    init() {
+//        if preferences.launchAtLogin.value {
+//            loginItemManager.register()
+//        }
+//    }
     
     var body: some Scene {
         MenuBarExtra {
@@ -26,17 +30,17 @@ struct DeepXCleanerApp: App {
                 .environment(\.xcodeCleanerStore, store)
                 .environment(\.cleanerPreferences, preferences)
         } label: {
-            VStack(spacing: 2) {
+            HStack(spacing: 5) {
                 Image("iconClear")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 18, height: 18)
                 
                 if preferences.showFreeSpaceInMenuBar.value {
                     Text(store.freedSpace.formattedBytes())
                         .font(.caption2)
                         .foregroundStyle(.primary)
                 }
+            }
+            .onAppear {
+                LaunchAtLogin.isEnabled = preferences.launchAtLogin.value
             }
             .padding(.vertical, 4)
             .padding(.horizontal, 6)

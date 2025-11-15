@@ -33,6 +33,8 @@
 		1C8EC3DB2EC1FA0E0087D3FC /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8EC3DA2EC1FA0E0087D3FC /* NavigationRouter.swift */; };
 		1C8EC3DD2EC1FBC10087D3FC /* CleanerPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8EC3DC2EC1FBC10087D3FC /* CleanerPreferencesView.swift */; };
 		1C8EC3DF2EC205150087D3FC /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8EC3DE2EC2050D0087D3FC /* Color+Extension.swift */; };
+		1CB55E2C2EC8A1BA00E33315 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 1CB55E2B2EC8A1BA00E33315 /* LaunchAtLogin */; };
+		1CEC642C2EC890E000850623 /* LoginItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC642B2EC890E000850623 /* LoginItemManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		1C8EC3DA2EC1FA0E0087D3FC /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		1C8EC3DC2EC1FBC10087D3FC /* CleanerPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanerPreferencesView.swift; sourceTree = "<group>"; };
 		1C8EC3DE2EC2050D0087D3FC /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		1CEC642B2EC890E000850623 /* LoginItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemManager.swift; sourceTree = "<group>"; };
+		1CEC642D2EC8911300850623 /* DeepXCleaner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeepXCleaner.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CB55E2C2EC8A1BA00E33315 /* LaunchAtLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +108,7 @@
 		1C8EC3A52EC1F6000087D3FC /* DeepXCleaner */ = {
 			isa = PBXGroup;
 			children = (
+				1CEC642D2EC8911300850623 /* DeepXCleaner.entitlements */,
 				1C8EC3D42EC1F87F0087D3FC /* App */,
 				1C8EC3D52EC1F88C0087D3FC /* Core */,
 				1C8EC3B82EC1F6350087D3FC /* Extenstions */,
@@ -190,6 +196,7 @@
 		1C8EC3D62EC1F8AA0087D3FC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1CEC642B2EC890E000850623 /* LoginItemManager.swift */,
 				1C8EC3A32EC1F6000087D3FC /* RootView.swift */,
 				1C8EC3D72EC1F9260087D3FC /* XcodeCleanerView.swift */,
 				1C8EC3DC2EC1FBC10087D3FC /* CleanerPreferencesView.swift */,
@@ -222,6 +229,7 @@
 			);
 			name = DeepXCleaner;
 			packageProductDependencies = (
+				1CB55E2B2EC8A1BA00E33315 /* LaunchAtLogin */,
 			);
 			productName = DeepXCleaner;
 			productReference = 1C8EC3942EC1F5CD0087D3FC /* DeepXCleaner.app */;
@@ -251,6 +259,9 @@
 			);
 			mainGroup = 1C8EC38B2EC1F5CD0087D3FC;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				1CB55E2A2EC8A1BA00E33315 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1C8EC3952EC1F5CD0087D3FC /* Products */;
 			projectDirPath = "";
@@ -301,6 +312,7 @@
 				1C8EC3CC2EC1F6350087D3FC /* Double+FormattedBytes.swift in Sources */,
 				1C8EC3DF2EC205150087D3FC /* Color+Extension.swift in Sources */,
 				1C8EC3DD2EC1FBC10087D3FC /* CleanerPreferencesView.swift in Sources */,
+				1CEC642C2EC890E000850623 /* LoginItemManager.swift in Sources */,
 				1C8EC3CD2EC1F6350087D3FC /* ScrollHeightModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,10 +449,16 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BDSFFR6HFZ;
 				ENABLE_APP_SANDBOX = NO;
-				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
 				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -477,10 +495,16 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BDSFFR6HFZ;
 				ENABLE_APP_SANDBOX = NO;
-				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
 				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -528,6 +552,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1CB55E2A2EC8A1BA00E33315 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Modern";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1CB55E2B2EC8A1BA00E33315 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1CB55E2A2EC8A1BA00E33315 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
+			productName = LaunchAtLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1C8EC38C2EC1F5CD0087D3FC /* Project object */;
 }

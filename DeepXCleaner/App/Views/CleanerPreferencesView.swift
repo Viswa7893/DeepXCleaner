@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LaunchAtLogin
 
 struct CleanerPreferencesView: View {
     @Environment(\.xcodeCleanerStore) private var store
@@ -62,6 +63,16 @@ struct CleanerPreferencesView: View {
                     sectionCard("App Preferences", color: .purple) {
                         toggleRow("Show Free Space in Menu Bar", systemImage: "menubar.rectangle",
                                   isOn: $prefs.showFreeSpaceInMenuBar.value)
+                        
+                        toggleRow("Launch at Login", systemImage: "power.circle.fill",
+                                  isOn: Binding(
+                                    get: { prefs.launchAtLogin.value },
+                                    set: { newValue in
+                                        prefs.launchAtLogin.value = newValue
+                                        LoginItemManager.shared.isEnabled = newValue
+                                        LaunchAtLogin.isEnabled = newValue
+                                    }
+                                  ))
                     }
                     
                     Text("Version \(NSApplication.fullVersionString)")

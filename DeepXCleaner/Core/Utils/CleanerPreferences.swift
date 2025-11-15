@@ -23,7 +23,8 @@ final class CleanerPreferences {
     var resetXcodeSettings = PersistentValue(ShellExecutor.Command.resetXcodeSettings.rawValue, defaultValue: false)
     
     // MARK: - UI Preference
-    var showFreeSpaceInMenuBar = PersistentValue("display-free-up-space-in-menu-bar", defaultValue: false)
+    var showFreeSpaceInMenuBar = PersistentValue("display-free-up-space-in-menu-bar", defaultValue: true)
+    var launchAtLogin = PersistentValue("launch-at-login", defaultValue: true)
 }
 
 extension EnvironmentValues {
