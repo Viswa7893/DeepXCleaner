@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import LaunchAtLogin
 
 struct CleanerPreferencesView: View {
     @Environment(\.xcodeCleanerStore) private var store
@@ -70,7 +69,6 @@ struct CleanerPreferencesView: View {
                                     set: { newValue in
                                         prefs.launchAtLogin.value = newValue
                                         LoginItemManager.shared.isEnabled = newValue
-                                        LaunchAtLogin.isEnabled = newValue
                                     }
                                   ))
                     }

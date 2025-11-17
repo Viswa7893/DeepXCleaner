@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1C1142162EC603C100FF0C07"
-               BuildableName = "DeepXCleanerLoginHelper.app"
-               BlueprintName = "DeepXCleanerLoginHelper"
+               BlueprintIdentifier = "1CD8BF1E2ECB18140034CEE4"
+               BuildableName = "DeepXCleanerLauncher.app"
+               BlueprintName = "DeepXCleanerLauncher"
                ReferencedContainer = "container:DeepXCleaner.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,9 +44,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1C1142162EC603C100FF0C07"
-            BuildableName = "DeepXCleanerLoginHelper.app"
-            BlueprintName = "DeepXCleanerLoginHelper"
+            BlueprintIdentifier = "1CD8BF1E2ECB18140034CEE4"
+            BuildableName = "DeepXCleanerLauncher.app"
+            BlueprintName = "DeepXCleanerLauncher"
             ReferencedContainer = "container:DeepXCleaner.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,9 +61,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1C1142162EC603C100FF0C07"
-            BuildableName = "DeepXCleanerLoginHelper.app"
-            BlueprintName = "DeepXCleanerLoginHelper"
+            BlueprintIdentifier = "1CD8BF1E2ECB18140034CEE4"
+            BuildableName = "DeepXCleanerLauncher.app"
+            BlueprintName = "DeepXCleanerLauncher"
             ReferencedContainer = "container:DeepXCleaner.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -33,9 +33,20 @@
 		1C8EC3DB2EC1FA0E0087D3FC /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8EC3DA2EC1FA0E0087D3FC /* NavigationRouter.swift */; };
 		1C8EC3DD2EC1FBC10087D3FC /* CleanerPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8EC3DC2EC1FBC10087D3FC /* CleanerPreferencesView.swift */; };
 		1C8EC3DF2EC205150087D3FC /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8EC3DE2EC2050D0087D3FC /* Color+Extension.swift */; };
-		1CB55E2C2EC8A1BA00E33315 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 1CB55E2B2EC8A1BA00E33315 /* LaunchAtLogin */; };
 		1CEC642C2EC890E000850623 /* LoginItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC642B2EC890E000850623 /* LoginItemManager.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1CD8BF2D2ECB18830034CEE4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1C59D7262EC5DF5C00414CCC /* clean_archives.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = clean_archives.sh; sourceTree = "<group>"; };
@@ -66,7 +77,6 @@
 		1C8EC3DC2EC1FBC10087D3FC /* CleanerPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanerPreferencesView.swift; sourceTree = "<group>"; };
 		1C8EC3DE2EC2050D0087D3FC /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		1CEC642B2EC890E000850623 /* LoginItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemManager.swift; sourceTree = "<group>"; };
-		1CEC642D2EC8911300850623 /* DeepXCleaner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeepXCleaner.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CB55E2C2EC8A1BA00E33315 /* LaunchAtLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,7 +117,6 @@
 		1C8EC3A52EC1F6000087D3FC /* DeepXCleaner */ = {
 			isa = PBXGroup;
 			children = (
-				1CEC642D2EC8911300850623 /* DeepXCleaner.entitlements */,
 				1C8EC3D42EC1F87F0087D3FC /* App */,
 				1C8EC3D52EC1F88C0087D3FC /* Core */,
 				1C8EC3B82EC1F6350087D3FC /* Extenstions */,
@@ -222,6 +230,7 @@
 				1C8EC3902EC1F5CD0087D3FC /* Sources */,
 				1C8EC3912EC1F5CD0087D3FC /* Frameworks */,
 				1C8EC3922EC1F5CD0087D3FC /* Resources */,
+				1CD8BF2D2ECB18830034CEE4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -229,7 +238,6 @@
 			);
 			name = DeepXCleaner;
 			packageProductDependencies = (
-				1CB55E2B2EC8A1BA00E33315 /* LaunchAtLogin */,
 			);
 			productName = DeepXCleaner;
 			productReference = 1C8EC3942EC1F5CD0087D3FC /* DeepXCleaner.app */;
@@ -260,7 +268,6 @@
 			mainGroup = 1C8EC38B2EC1F5CD0087D3FC;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				1CB55E2A2EC8A1BA00E33315 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1C8EC3952EC1F5CD0087D3FC /* Products */;
@@ -552,25 +559,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		1CB55E2A2EC8A1BA00E33315 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Modern";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		1CB55E2B2EC8A1BA00E33315 /* LaunchAtLogin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1CB55E2A2EC8A1BA00E33315 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
-			productName = LaunchAtLogin;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1C8EC38C2EC1F5CD0087D3FC /* Project object */;
 }

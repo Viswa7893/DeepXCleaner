@@ -7,7 +7,7 @@
 
 import SwiftUI
 import ServiceManagement
-import LaunchAtLogin
+//import LaunchAtLogin
 
 @main
 struct DeepXCleanerApp: App {
@@ -17,11 +17,11 @@ struct DeepXCleanerApp: App {
     @State private var preferences = CleanerPreferences.shared
     @State private var loginItemManager = LoginItemManager.shared
     
-//    init() {
-//        if preferences.launchAtLogin.value {
-//            loginItemManager.register()
-//        }
-//    }
+    init() {
+        if preferences.launchAtLogin.value {
+            loginItemManager.register()
+        }
+    }
     
     var body: some Scene {
         MenuBarExtra {
@@ -38,9 +38,6 @@ struct DeepXCleanerApp: App {
                         .font(.caption2)
                         .foregroundStyle(.primary)
                 }
-            }
-            .onAppear {
-                LaunchAtLogin.isEnabled = preferences.launchAtLogin.value
             }
             .padding(.vertical, 4)
             .padding(.horizontal, 6)
