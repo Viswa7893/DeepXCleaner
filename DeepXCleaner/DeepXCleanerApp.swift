@@ -7,7 +7,6 @@
 
 import SwiftUI
 import ServiceManagement
-//import LaunchAtLogin
 
 @main
 struct DeepXCleanerApp: App {

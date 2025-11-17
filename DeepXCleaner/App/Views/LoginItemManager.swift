@@ -13,7 +13,7 @@ final class LoginItemManager {
     
     static let shared = LoginItemManager()
     
-    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.DeepXCleaner", category: "LoginItem")
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.viswa.DeepXCleaner", category: "LoginItem")
     
     private init() {}
     
