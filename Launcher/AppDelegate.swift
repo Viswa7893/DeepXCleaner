@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Launcher
 //
-//  Created by IT SF GOC HYD on 17/11/25.
+//  Created by Durga Viswanadh on 17/11/25.
 //
 
 import Cocoa

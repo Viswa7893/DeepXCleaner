@@ -16,12 +16,6 @@ struct DeepXCleanerApp: App {
     @State private var preferences = CleanerPreferences.shared
     @State private var loginItemManager = LoginItemManager.shared
     
-    init() {
-        if preferences.launchAtLogin.value {
-            loginItemManager.register()
-        }
-    }
-    
     var body: some Scene {
         MenuBarExtra {
             RootView()
