@@ -5,8 +5,14 @@
 //  Created by Durga Viswanadh on 10/11/25.
 //
 
+//
+//  LoginItemManager.swift
+//  DeepXCleaner
+//
+//  Created by Durga Viswanadh on 10/11/25.
+//
+
 import Foundation
-import ServiceManagement
 import os.log
 
 final class LoginItemManager {
@@ -20,47 +26,75 @@ final class LoginItemManager {
     /// Check if app is currently registered as a login item
     var isEnabled: Bool {
         get {
-            if #available(macOS 13.0, *) {
-                return SMAppService.mainApp.status == .enabled
-            } else {
-                return CleanerPreferences.shared.launchAtLogin.value
-            }
+            return launchAgentExists()
         }
         set {
             setEnabled(newValue)
         }
     }
     
-    /// Enable or disable launch at login
+    /// Enable or disable launch at login using LaunchAgent (works without sandbox)
     private func setEnabled(_ enabled: Bool) {
-        if #available(macOS 13.0, *) {
+        let launchAgentPath = launchAgentPlistPath()
+        let fileManager = FileManager.default
+        
+        if enabled {
+            // Create LaunchAgents directory if it doesn't exist
+            let launchAgentsDir = (launchAgentPath as NSString).deletingLastPathComponent
+            if !fileManager.fileExists(atPath: launchAgentsDir) {
+                try? fileManager.createDirectory(atPath: launchAgentsDir, withIntermediateDirectories: true)
+            }
+            
+            // Create plist content
+            let bundleID = Bundle.main.bundleIdentifier ?? "com.viswa.DeepXCleaner"
+            let appPath = Bundle.main.bundlePath
+            
+            let plistContent = """
+            <?xml version="1.0" encoding="UTF-8"?>
+            <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+            <plist version="1.0">
+            <dict>
+                <key>Label</key>
+                <string>\(bundleID)</string>
+                <key>ProgramArguments</key>
+                <array>
+                    <string>\(appPath)/Contents/MacOS/DeepXCleaner</string>
+                </array>
+                <key>RunAtLoad</key>
+                <true/>
+                <key>KeepAlive</key>
+                <false/>
+            </dict>
+            </plist>
+            """
+            
             do {
-                if enabled {
-                    // KEY FIX: Unregister first if already enabled to avoid conflicts
-                    if SMAppService.mainApp.status == .enabled {
-                        try? SMAppService.mainApp.unregister()
-                    }
-                    
-                    try SMAppService.mainApp.register()
-                    logger.info("✅ Successfully enabled launch at login")
-                } else {
-                    try SMAppService.mainApp.unregister()
-                    logger.info("✅ Successfully disabled launch at login")
-                }
+                try plistContent.write(toFile: launchAgentPath, atomically: true, encoding: .utf8)
+                logger.info("Successfully enabled launch at login (LaunchAgent)")
             } catch {
-                logger.error("❌ Failed to \(enabled ? "enable" : "disable") launch at login: \(error.localizedDescription)")
+                logger.error("Failed to create LaunchAgent: \(error.localizedDescription)")
             }
         } else {
-            // For macOS 12 and earlier - using deprecated API
-            let bundleIdentifier = Bundle.main.bundleIdentifier ?? "com.viswa.DeepXCleaner"
-            let success = SMLoginItemSetEnabled(bundleIdentifier as CFString, enabled)
-            
-            if success {
-                logger.info("✅ \(enabled ? "Enabled" : "Disabled") launch at login (macOS 12)")
-            } else {
-                logger.error("❌ Failed to \(enabled ? "enable" : "disable") launch at login (macOS 12)")
+            // Remove launch agent
+            if fileManager.fileExists(atPath: launchAgentPath) {
+                do {
+                    try fileManager.removeItem(atPath: launchAgentPath)
+                    logger.info("Successfully disabled launch at login")
+                } catch {
+                    logger.error("Failed to remove LaunchAgent: \(error.localizedDescription)")
+                }
             }
         }
+    }
+    
+    private func launchAgentPlistPath() -> String {
+        let homeDir = FileManager.default.homeDirectoryForCurrentUser.path
+        let bundleID = Bundle.main.bundleIdentifier ?? "com.viswa.DeepXCleaner"
+        return "\(homeDir)/Library/LaunchAgents/\(bundleID).plist"
+    }
+    
+    private func launchAgentExists() -> Bool {
+        return FileManager.default.fileExists(atPath: launchAgentPlistPath())
     }
     
     /// Register the app as a login item
