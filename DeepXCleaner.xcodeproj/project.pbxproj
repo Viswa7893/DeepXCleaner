@@ -11,7 +11,6 @@
 		1C8EC3A72EC1F6000087D3FC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8EC3A32EC1F6000087D3FC /* RootView.swift */; };
 		1C8EC3A82EC1F6000087D3FC /* DeepXCleanerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8EC3A42EC1F6000087D3FC /* DeepXCleanerApp.swift */; };
 		1C8EC3C62EC1F6350087D3FC /* XcodeCleanerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8EC3B52EC1F6350087D3FC /* XcodeCleanerStore.swift */; };
-		1C8EC3C72EC1F6350087D3FC /* ShellExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8EC3B32EC1F6350087D3FC /* ShellExecutor.swift */; };
 		1C8EC3C82EC1F6350087D3FC /* CleanerPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8EC3B42EC1F6350087D3FC /* CleanerPreferences.swift */; };
 		1C8EC3C92EC1F6350087D3FC /* XcodeStorageUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8EC3B92EC1F6350087D3FC /* XcodeStorageUsage.swift */; };
 		1C8EC3CA2EC1F6350087D3FC /* HoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8EC3BB2EC1F6350087D3FC /* HoverButton.swift */; };
@@ -25,14 +24,6 @@
 		1C8EC3DB2EC1FA0E0087D3FC /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8EC3DA2EC1FA0E0087D3FC /* NavigationRouter.swift */; };
 		1C8EC3DD2EC1FBC10087D3FC /* CleanerPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8EC3DC2EC1FBC10087D3FC /* CleanerPreferencesView.swift */; };
 		1C8EC3DF2EC205150087D3FC /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8EC3DE2EC2050D0087D3FC /* Color+Extension.swift */; };
-		1CD23A372ECDFAAF00FA1C69 /* clean_archives.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1C59D7262EC5DF5C00414CCC /* clean_archives.sh */; };
-		1CD23A382ECDFAB100FA1C69 /* clean_derived_data.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1C59D7272EC5DF5C00414CCC /* clean_derived_data.sh */; };
-		1CD23A392ECDFAB400FA1C69 /* clean_device_support.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1C59D7282EC5DF5C00414CCC /* clean_device_support.sh */; };
-		1CD23A3A2ECDFAB600FA1C69 /* clean_simulator_data.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1C59D7292EC5DF5C00414CCC /* clean_simulator_data.sh */; };
-		1CD23A3B2ECDFABA00FA1C69 /* clean_xcode_caches.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1C59D72A2EC5DF5C00414CCC /* clean_xcode_caches.sh */; };
-		1CD23A3C2ECDFABE00FA1C69 /* prune_old_simulators.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1C59D72B2EC5DF5C00414CCC /* prune_old_simulators.sh */; };
-		1CD23A3D2ECDFABF00FA1C69 /* reset_xcode_settings.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1C59D72C2EC5DF5C00414CCC /* reset_xcode_settings.sh */; };
-		1CD23A3E2ECDFAC100FA1C69 /* xcode_storage_usage.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1C59D72D2EC5DF5C00414CCC /* xcode_storage_usage.sh */; };
 		1CD8BFEF2ECB2A420034CEE4 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD8BFEE2ECB2A420034CEE4 /* ServiceManagement.framework */; };
 		1CD8BFF02ECB2A550034CEE4 /* Launcher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1CD8BF3F2ECB27DA0034CEE4 /* Launcher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1CEC642C2EC890E000850623 /* LoginItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEC642B2EC890E000850623 /* LoginItemManager.swift */; };
@@ -52,20 +43,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1C59D7262EC5DF5C00414CCC /* clean_archives.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = clean_archives.sh; sourceTree = "<group>"; };
-		1C59D7272EC5DF5C00414CCC /* clean_derived_data.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = clean_derived_data.sh; sourceTree = "<group>"; };
-		1C59D7282EC5DF5C00414CCC /* clean_device_support.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = clean_device_support.sh; sourceTree = "<group>"; };
-		1C59D7292EC5DF5C00414CCC /* clean_simulator_data.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = clean_simulator_data.sh; sourceTree = "<group>"; };
-		1C59D72A2EC5DF5C00414CCC /* clean_xcode_caches.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = clean_xcode_caches.sh; sourceTree = "<group>"; };
-		1C59D72B2EC5DF5C00414CCC /* prune_old_simulators.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = prune_old_simulators.sh; sourceTree = "<group>"; };
-		1C59D72C2EC5DF5C00414CCC /* reset_xcode_settings.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = reset_xcode_settings.sh; sourceTree = "<group>"; };
-		1C59D72D2EC5DF5C00414CCC /* xcode_storage_usage.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = xcode_storage_usage.sh; sourceTree = "<group>"; };
 		1C8EC3942EC1F5CD0087D3FC /* DeepXCleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepXCleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C8EC3A22EC1F6000087D3FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C8EC3A32EC1F6000087D3FC /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1C8EC3A42EC1F6000087D3FC /* DeepXCleanerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepXCleanerApp.swift; sourceTree = "<group>"; };
 		1C8EC3B22EC1F6350087D3FC /* PersistentValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentValue.swift; sourceTree = "<group>"; };
-		1C8EC3B32EC1F6350087D3FC /* ShellExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellExecutor.swift; sourceTree = "<group>"; };
 		1C8EC3B42EC1F6350087D3FC /* CleanerPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanerPreferences.swift; sourceTree = "<group>"; };
 		1C8EC3B52EC1F6350087D3FC /* XcodeCleanerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeCleanerStore.swift; sourceTree = "<group>"; };
 		1C8EC3B72EC1F6350087D3FC /* Double+FormattedBytes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+FormattedBytes.swift"; sourceTree = "<group>"; };
@@ -169,26 +151,10 @@
 			path = DeepXCleaner;
 			sourceTree = "<group>";
 		};
-		1C8EC3B12EC1F6350087D3FC /* Scripts */ = {
-			isa = PBXGroup;
-			children = (
-				1C59D7262EC5DF5C00414CCC /* clean_archives.sh */,
-				1C59D7272EC5DF5C00414CCC /* clean_derived_data.sh */,
-				1C59D7282EC5DF5C00414CCC /* clean_device_support.sh */,
-				1C59D7292EC5DF5C00414CCC /* clean_simulator_data.sh */,
-				1C59D72A2EC5DF5C00414CCC /* clean_xcode_caches.sh */,
-				1C59D72B2EC5DF5C00414CCC /* prune_old_simulators.sh */,
-				1C59D72C2EC5DF5C00414CCC /* reset_xcode_settings.sh */,
-				1C59D72D2EC5DF5C00414CCC /* xcode_storage_usage.sh */,
-			);
-			path = Scripts;
-			sourceTree = "<group>";
-		};
 		1C8EC3B62EC1F6350087D3FC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				1C8EC3B22EC1F6350087D3FC /* PersistentValue.swift */,
-				1C8EC3B32EC1F6350087D3FC /* ShellExecutor.swift */,
 				1C8EC3B42EC1F6350087D3FC /* CleanerPreferences.swift */,
 				1C8EC3B52EC1F6350087D3FC /* XcodeCleanerStore.swift */,
 			);
@@ -236,7 +202,6 @@
 		1C8EC3D52EC1F88C0087D3FC /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				1C8EC3B12EC1F6350087D3FC /* Scripts */,
 				1C8EC3B62EC1F6350087D3FC /* Utils */,
 			);
 			path = Core;
@@ -352,14 +317,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C8EC3A62EC1F6000087D3FC /* Assets.xcassets in Resources */,
-				1CD23A372ECDFAAF00FA1C69 /* clean_archives.sh in Resources */,
-				1CD23A382ECDFAB100FA1C69 /* clean_derived_data.sh in Resources */,
-				1CD23A392ECDFAB400FA1C69 /* clean_device_support.sh in Resources */,
-				1CD23A3A2ECDFAB600FA1C69 /* clean_simulator_data.sh in Resources */,
-				1CD23A3B2ECDFABA00FA1C69 /* clean_xcode_caches.sh in Resources */,
-				1CD23A3C2ECDFABE00FA1C69 /* prune_old_simulators.sh in Resources */,
-				1CD23A3D2ECDFABF00FA1C69 /* reset_xcode_settings.sh in Resources */,
-				1CD23A3E2ECDFAC100FA1C69 /* xcode_storage_usage.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,7 +338,6 @@
 				1C8EC3A82EC1F6000087D3FC /* DeepXCleanerApp.swift in Sources */,
 				1C8EC3C62EC1F6350087D3FC /* XcodeCleanerStore.swift in Sources */,
 				1C8EC3D32EC1F8550087D3FC /* ModernCircularProgressViewStyle.swift in Sources */,
-				1C8EC3C72EC1F6350087D3FC /* ShellExecutor.swift in Sources */,
 				1C8EC3C82EC1F6350087D3FC /* CleanerPreferences.swift in Sources */,
 				1C8EC3D12EC1F7AF0087D3FC /* NSApplication+VersionInfo.swift in Sources */,
 				1C8EC3D82EC1F9260087D3FC /* XcodeCleanerView.swift in Sources */,
@@ -534,7 +490,7 @@
 				AUTOMATION_APPLE_EVENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = BDSFFR6HFZ;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -578,7 +534,7 @@
 				AUTOMATION_APPLE_EVENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = BDSFFR6HFZ;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;

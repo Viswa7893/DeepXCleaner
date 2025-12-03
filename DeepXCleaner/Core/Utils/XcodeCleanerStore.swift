@@ -14,11 +14,12 @@ final class XcodeCleanerStore {
     private(set) var usedSpace = XcodeStorageUsage()
     private(set) var isCalculating = false
     private(set) var isCleaning = false
+    private(set) var animatedProgress: Double = 0.0  // For smooth UI animation
     let preferences: CleanerPreferences
     
     var status: Status {
         if isCleaning {
-            .cleaning(progress: progress, total: progressTotal)
+            .cleaning(progress: animatedProgress, total: progressTotal)
         } else if isCompleted {
             .completed
         } else {
@@ -38,10 +39,6 @@ final class XcodeCleanerStore {
     private var completedSteps: Int = 0
     private var totalSteps: Int = 0
     
-    private var progress: Double {
-        guard totalSteps > 0 else { return 0 }
-        return Double(completedSteps) / Double(totalSteps)
-    }
     private var progressTotal: CGFloat { 1.0 }
     
     private var enabledCommands: [CleanCommand] {
@@ -85,6 +82,7 @@ final class XcodeCleanerStore {
         isCleaning = true
         isCompleted = false
         completedSteps = 0
+        animatedProgress = 0.0
         
         // Stop timer during cleaning to avoid conflicts
         timer?.invalidate()
@@ -92,18 +90,44 @@ final class XcodeCleanerStore {
         let commands = enabledCommands
         totalSteps = commands.count
         
-        // Execute commands sequentially for accurate progress
-        for command in commands {
+        guard totalSteps > 0 else {
+            isCleaning = false
+            return
+        }
+        
+        // Execute commands with smooth progress updates
+        for (index, command) in commands.enumerated() {
+            // Calculate progress range for this command
+            let startProgress = Double(index) / Double(totalSteps)
+            let endProgress = Double(index + 1) / Double(totalSteps)
+            
+            // Start animating progress for this command
+            let animationTask = Task { @MainActor in
+                await animateProgress(from: startProgress, to: endProgress, duration: 2.0)
+            }
+            
+            // Execute the actual command
             do {
                 try await executeCleanCommand(command)
-                completedSteps += 1
-                // Small delay for UI to update smoothly
-                try? await Task.sleep(nanoseconds: 300_000_000) // 0.3 sec
             } catch {
                 print("Error executing \(command): \(error)")
-                completedSteps += 1 // Count even if failed
             }
+            
+            // Wait for animation to complete
+            await animationTask.value
+            
+            // Mark as complete
+            completedSteps = index + 1
+            animatedProgress = endProgress
+            
+            // Small pause between commands
+            try? await Task.sleep(nanoseconds: 100_000_000) // 0.1 sec
         }
+        
+        // Ensure we reach 100%
+        animatedProgress = 1.0
+        completedSteps = totalSteps
+        try? await Task.sleep(nanoseconds: 300_000_000) // 0.3 sec
         
         // Recalculate storage after cleaning
         await calculateUsageAsync()
@@ -113,6 +137,7 @@ final class XcodeCleanerStore {
         isCompleted = true
         completedSteps = 0
         totalSteps = 0
+        animatedProgress = 0.0
         
         // Restart timer
         setupTimer()
@@ -120,6 +145,22 @@ final class XcodeCleanerStore {
         // Reset completion state after delay
         try? await Task.sleep(nanoseconds: 2_000_000_000) // 2 sec
         isCompleted = false
+    }
+    
+    // MARK: - Smooth Progress Animation
+    @MainActor
+    private func animateProgress(from start: Double, to end: Double, duration: TimeInterval) async {
+        let steps = 60 // 60 updates for smooth animation
+        let increment = (end - start) / Double(steps)
+        let delayPerStep = duration / Double(steps)
+        
+        for step in 0...steps {
+            animatedProgress = start + (increment * Double(step))
+            try? await Task.sleep(nanoseconds: UInt64(delayPerStep * 1_000_000_000))
+        }
+        
+        // Ensure we hit the exact end value
+        animatedProgress = end
     }
     
     func quit() {
@@ -212,7 +253,7 @@ actor FileOperations {
         let deviceSupportTvOS = await calculateDirectorySize("\(homeDir)/Library/Developer/Xcode/tvOS DeviceSupport")
         
         // Return initialized struct
-        return XcodeStorageUsage(
+        return await XcodeStorageUsage(
             derivedData: derivedData,
             archives: archives,
             simulatorData: simulatorData,
@@ -262,6 +303,9 @@ actor FileOperations {
         
         guard fm.fileExists(atPath: path) else { return 0 }
         
+        // Use du -sk for accurate disk usage calculation (matches original behavior)
+        // This is more accurate than manually enumerating files because it accounts
+        // for filesystem block allocation
         do {
             let result = try await executeProcessWithOutput("/usr/bin/du", arguments: ["-sk", path])
             
@@ -273,6 +317,7 @@ actor FileOperations {
             
             return 0
         } catch {
+            // Fallback: return 0 if du command fails
             return 0
         }
     }
@@ -317,29 +362,8 @@ actor FileOperations {
     }
     
     private static func executeProcess(_ executablePath: String, arguments: [String]) async throws {
-        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
-            let process = Process()
-            process.executableURL = URL(fileURLWithPath: executablePath)
-            process.arguments = arguments
-            
-            let pipe = Pipe()
-            process.standardOutput = pipe
-            process.standardError = pipe
-            
-            process.terminationHandler = { process in
-                if process.terminationStatus == 0 {
-                    continuation.resume()
-                } else {
-                    continuation.resume(throwing: CleanError.processFailed(status: process.terminationStatus))
-                }
-            }
-            
-            do {
-                try process.run()
-            } catch {
-                continuation.resume(throwing: error)
-            }
-        }
+        // Reuse executeProcessWithOutput but discard the output
+        _ = try await executeProcessWithOutput(executablePath, arguments: arguments)
     }
 }
 
