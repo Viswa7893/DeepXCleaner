@@ -25,7 +25,7 @@ struct CleanerPreferencesView: View {
                            endPoint: .bottomTrailing)
                 .ignoresSafeArea()
             
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 28) {
                     header
                     

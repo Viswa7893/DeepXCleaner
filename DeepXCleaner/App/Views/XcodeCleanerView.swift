@@ -88,7 +88,7 @@ private extension XcodeCleanerView {
             
             VStack {
                 ZStack {
-                    CircularProgressView(progress: store.isCleaning ? 0.6 : (store.status == .completed ? 1.0 : 0.0))
+                    CircularProgressView(progress: progressValue)
                         .frame(width: 110, height: 110)
                 }
                 
@@ -118,6 +118,19 @@ private extension XcodeCleanerView {
                 }
             }
             .padding(.vertical, 20)
+        }
+    }
+    
+    var progressValue: Double {
+        switch store.status {
+        case .idle:
+            return 0.0
+        case .cleaning(let progress, _):
+            return progress
+        case .completed:
+            return 1.0
+        case .error:
+            return 0.0
         }
     }
     
@@ -186,7 +199,7 @@ private extension XcodeCleanerView {
     func startCleaning() {
         guard !store.isCleaning else { return }
         cleaningTask?.cancel()
-        cleaningTask = Task(priority: .background) { @MainActor in
+        cleaningTask = Task(priority: .userInitiated) { @MainActor in
             do { try await store.clean() } catch { print(error) }
         }
     }
@@ -217,7 +230,18 @@ private struct CleanerActionButton: View {
             .animation(.spring(response: 0.36, dampingFraction: 0.68), value: isHover)
         }
         .buttonStyle(.plain)
+        .disabled(isDisabled)
+        .opacity(isDisabled ? 0.6 : 1)
         .onHover { isHover = $0 }
+    }
+    
+    var isDisabled: Bool {
+        switch status {
+        case .cleaning:
+            return true
+        default:
+            return false
+        }
     }
 }
 
@@ -255,9 +279,12 @@ private struct CircularProgressView: View {
                 .stroke(AngularGradient(gradient: Gradient(colors: [.blue, .purple, .cyan]), center: .center), style: StrokeStyle(lineWidth: 10, lineCap: .round))
                 .rotationEffect(.degrees(-90))
                 .shadow(color: Color.cyan.opacity(0.35), radius: 8, x: 0, y: 0)
+                .animation(.easeInOut(duration: 0.3), value: progress)
             Text("\(Int(progress * 100))%")
                 .font(.caption2.monospacedDigit())
                 .foregroundStyle(.white)
+                .contentTransition(.numericText())
+                .animation(.easeInOut(duration: 0.3), value: progress)
         }
         .frame(width: 70, height: 70)
     }

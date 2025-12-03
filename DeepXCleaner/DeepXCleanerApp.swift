@@ -16,6 +16,11 @@ struct DeepXCleanerApp: App {
     @State private var preferences = CleanerPreferences.shared
     @State private var loginItemManager = LoginItemManager.shared
     
+    init() {
+        // Initialize auto-launch on first run
+        setupAutoLaunch()
+    }
+    
     var body: some Scene {
         MenuBarExtra {
             RootView()
@@ -36,5 +41,23 @@ struct DeepXCleanerApp: App {
             .padding(.horizontal, 6)
         }
         .menuBarExtraStyle(.window)
+    }
+    
+    // MARK: - Setup Auto Launch
+    private func setupAutoLaunch() {
+        // Check if this is first launch or if user wants auto-launch
+        if preferences.launchAtLogin.value {
+            // Sync the preference with actual system state
+            if !loginItemManager.isEnabled {
+                loginItemManager.register()
+                print("✅ Auto-launch registered on app initialization")
+            }
+        } else {
+            // If preference is false but it's enabled in system, remove it
+            if loginItemManager.isEnabled {
+                loginItemManager.unregister()
+                print("❌ Auto-launch unregistered as per user preference")
+            }
+        }
     }
 }
