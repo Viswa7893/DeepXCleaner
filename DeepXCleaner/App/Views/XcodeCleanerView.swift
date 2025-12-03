@@ -88,7 +88,8 @@ private extension XcodeCleanerView {
             
             VStack {
                 ZStack {
-                    CircularProgressView(progress: progressValue)
+                    ProgressView(value: progressValue, total: 1.0)
+                        .progressViewStyle(ModernCircularProgressViewStyle())
                         .frame(width: 110, height: 110)
                 }
                 
