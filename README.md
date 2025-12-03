@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Viswa7893/DeepXCleaner/releases/latest/download/DeepXCleaner.dmg">
+  <a href="https://github.com/Viswa7893/DeepXCleaner/releases/latest/download/DeepXCleaner_V1.0.2.dmg">
     <img src="https://img.shields.io/badge/Download-DeepXCleaner.dmg-blue?style=for-the-badge&logo=apple" />
   </a>
 </p>
