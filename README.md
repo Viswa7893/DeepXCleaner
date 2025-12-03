@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="icon.png" width="60" />
-</p>
-
 # DeepXCleaner – The Most Beautiful Xcode Cleaner for macOS 🚀
 
 <p align="center">
@@ -14,6 +10,13 @@
 <p align="center">
   ⚡ A sleek, modern, beautifully animated macOS menu bar app that deeply cleans Xcode's unwanted files — freeing up gigabytes in a single click.
 </p>
+
+<p align="center">
+  <a href="https://github.com/Viswa7893/DeepXCleaner/releases/latest/download/DeepXCleaner.dmg">
+    <img src="https://img.shields.io/badge/Download-DeepXCleaner.dmg-blue?style=for-the-badge&logo=apple" />
+  </a>
+</p>
+
 
 ---
 
